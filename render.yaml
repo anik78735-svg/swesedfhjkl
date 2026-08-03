@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: nanbeige-ai
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
