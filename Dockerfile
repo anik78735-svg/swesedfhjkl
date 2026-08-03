@@ -2,8 +2,9 @@ FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV HF_HUB_ENABLE_HF_TRANSFER=1
 
-# System dependencies for torch
+# System dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libglib2.0-0 \
@@ -11,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# PyTorch CPU version install (sabse pehle)
+# PyTorch CPU version (sabse pehle)
 RUN pip install --no-cache-dir torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
 
 # Baaki packages
